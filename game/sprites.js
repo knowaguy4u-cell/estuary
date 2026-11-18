@@ -1,0 +1,3 @@
+export const palette={stone:'#e2d7b9',edge:'#9e9f8c',navy:'#102c38',water:'#267f8a',teal:'#438d89',copper:'#d8a36b',enemy:'#dc674e',ivory:'#fff1ce'};
+export function rgba(hex,alpha=1){return [parseInt(hex.slice(1,3),16)/255,parseInt(hex.slice(3,5),16)/255,parseInt(hex.slice(5,7),16)/255,alpha];}
+export function makeGeometry(){const data=[];return {data,rect(x,y,w,h,color,material=[0,0,0,0],alpha=1){const c=rgba(color,alpha);for(const [px,py] of [[x,y],[x+w,y],[x,y+h],[x,y+h],[x+w,y],[x+w,y+h]])data.push(px,py,...c,...material);},circle(x,y,r,color){this.rect(x-r,y-r,r*2,r*2,color,[x,y,r,0]);}};}
